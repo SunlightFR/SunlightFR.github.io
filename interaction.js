@@ -11,27 +11,39 @@ function DnD(canvas, interactor) {
 
   // Developper les 3 fonctions gérant les événements
   DnD.prototype.gererPression = e=>{
-    DnD.prototype.clic = true
+    
+    this.clic = true
     const pos = getMousePosition(canvas,e)
     console.log(pos)
-    DnD.prototype.initialx = pos.x
-    DnD.prototype.initialy = pos.y
+    this.initialx = pos.x
+    this.initialy = pos.y
+    if(interactor != null){
+      interactor.onInteractionStart(this)
+    }
+    
   }
 
   DnD.prototype.gererDeplacement = e=>{
-    if(DnD.prototype.clic){
+    if(this.clic){
       const pos = getMousePosition(canvas,e)
-      console.log(pos)
+      this.finalx = pos.x
+      this.finaly = pos.y
+      if(interactor!=null){
+        interactor.onInteractionUpdate(this)
+      }
+      
     }
     
   }
 
   DnD.prototype.gererRelachement = e=>{
-    DnD.prototype.clic = false
+    this.clic = false
     const pos = getMousePosition(canvas,e)
-    console.log(pos)
-    DnD.prototype.finalx = pos.x
-    DnD.prototype.finaly = pos.y
+    this.finalx = pos.x
+    this.finaly = pos.y
+    if(interactor!=null){
+      interactor.onInteractionUpdate(this)
+    }
   }
 
 	// Associer les fonctions précédentes aux évènements du canvas.
