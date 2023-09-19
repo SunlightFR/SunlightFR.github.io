@@ -28,3 +28,9 @@ Drawing.prototype.paint = function(ctx){
         forme.paint(ctx)
     })
 }
+
+Drawing.prototype.updateShapeList = function(obj){
+    const li = document.createElement("li")
+    li.innerHTML = '<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove-sign">'+obj.toString()+'</span></button>'
+    document.getElementById("shapeList").appendChild(li)
+}

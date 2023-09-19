@@ -14,6 +14,9 @@ function Line(p1x,p1y,p2x,p2y,couleur,epaisseur){
     this.p1y = p1y
     this.p2x = p2x
     this.p2y = p2y
+    Line.prototype.toString = function(){
+        return "Ligne. Point de départ : ("+this.p1x+", "+this.p1y+")"+this.couleur
+    }
 
 }
 Line.prototype = new Forme()
@@ -24,7 +27,9 @@ function Rectangle(px, py , largeur, hauteur,couleur,epaisseur){
     this.py = py
     this.largeur = largeur
     this.hauteur = hauteur
-
+    Rectangle.prototype.toString = function(){
+        return "Rectangle. Point de départ : ("+this.px+", "+this.py+")"+ this.couleur
+    }
 }
 
 Rectangle.prototype = new Forme()
@@ -33,6 +38,7 @@ function Drawing(){
     this.formes = []
     this.add = function(forme){
         this.formes.push(forme)
+        this.updateShapeList(forme)
     }
 
     this.pop  =function(){
