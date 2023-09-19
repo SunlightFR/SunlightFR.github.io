@@ -32,3 +32,4 @@ function Drawing(){
         this.formes.push(forme)
     }
 }
+
