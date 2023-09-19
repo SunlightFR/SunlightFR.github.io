@@ -9,7 +9,7 @@ Forme.prototype.paint = function(ctx){
 Rectangle.prototype.paint = function(ctx){
     ctx.beginPath()
     Forme.prototype.paint.call(this,ctx)
-    ctx.rect(this.px,this.py,this.px+this.largeur,this.py+this.hauteur)
+    ctx.rect(this.px,this.py,this.largeur,this.hauteur)
     ctx.stroke()
 }
 

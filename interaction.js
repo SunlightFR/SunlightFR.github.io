@@ -11,7 +11,6 @@ function DnD(canvas, interactor) {
 
   // Developper les 3 fonctions gérant les événements
   DnD.prototype.gererPression = e=>{
-    
     this.clic = true
     const pos = getMousePosition(canvas,e)
     console.log(pos)
@@ -31,9 +30,7 @@ function DnD(canvas, interactor) {
       if(interactor!=null){
         interactor.onInteractionUpdate(this)
       }
-      
     }
-    
   }
 
   DnD.prototype.gererRelachement = e=>{
@@ -42,7 +39,7 @@ function DnD(canvas, interactor) {
     this.finalx = pos.x
     this.finaly = pos.y
     if(interactor!=null){
-      interactor.onInteractionUpdate(this)
+      interactor.onInteractionEnd(this)
     }
   }
 
@@ -50,9 +47,6 @@ function DnD(canvas, interactor) {
   canvas.addEventListener('mousedown', this.gererPression, false);
   canvas.addEventListener('mousemove', this.gererDeplacement, false);
   canvas.addEventListener('mouseup', this.gererRelachement, false);
-	
-	
-
 };
 
 

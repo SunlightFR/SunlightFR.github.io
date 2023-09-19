@@ -2,7 +2,7 @@
 var editingMode = { rect: 0, line: 1 };
 
 function Pencil(ctx, drawing, canvas) {
-	this.currEditingMode = editingMode.line;
+	this.currEditingMode = editingMode.rect;
 	this.currLineWidth = 5;
 	this.currColour = '#000000';
 	this.currentShape = 0;
@@ -24,6 +24,7 @@ function Pencil(ctx, drawing, canvas) {
 				this.currentShape = new Rectangle(dnd.initialx,dnd.initialy,0,0,this.currColour,this.currLineWidth)
 				break;
 		}
+		drawing.paint(ctx)
 		this.currentShape.paint(ctx)
 	}
 
@@ -32,8 +33,20 @@ function Pencil(ctx, drawing, canvas) {
 			case editingMode.line:
 				this.currentShape.p2x = dnd.finalx
 				this.currentShape.p2y = dnd.finaly
+				break;
+			case editingMode.rect:
+				this.currentShape.largeur = dnd.finalx - dnd.initialx
+				this.currentShape.hauteur = dnd.finaly - dnd.initialy
+				break;
 		}
+		drawing.paint(ctx)
 		this.currentShape.paint(ctx)
+	}
+
+	Pencil.prototype.onInteractionEnd = function(dnd){
+		drawing.add(this.currentShape)
+		console.log(drawing)
+		new DnD(canvas, this);
 	}
 };
 

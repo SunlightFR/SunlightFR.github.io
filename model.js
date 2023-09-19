@@ -35,6 +35,10 @@ function Drawing(){
         this.formes.push(forme)
     }
 
+    this.pop  =function(){
+        this.formes.pop()
+    }
+
     this.getFormes = function(){
         return this.formes
     }
