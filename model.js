@@ -34,5 +34,9 @@ function Drawing(){
     this.add = function(forme){
         this.formes.push(forme)
     }
+
+    this.getFormes = function(){
+        return this.formes
+    }
 }
 
