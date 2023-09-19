@@ -48,6 +48,14 @@ function Pencil(ctx, drawing, canvas) {
 		console.log(drawing)
 		new DnD(canvas, this);
 	}
+
+	document.getElementById("butRect").onclick =  e=>{
+		this.currEditingMode = editingMode.rect
+	}
+
+	document.getElementById("butLine").onclick =  e=>{
+		this.currEditingMode = editingMode.line
+	}
 };
 
 
