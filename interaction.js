@@ -13,7 +13,6 @@ function DnD(canvas, interactor) {
   DnD.prototype.gererPression = e=>{
     this.clic = true
     const pos = getMousePosition(canvas,e)
-    console.log(pos)
     this.initialx = pos.x
     this.initialy = pos.y
     if(interactor != null){
@@ -34,6 +33,7 @@ function DnD(canvas, interactor) {
   }
 
   DnD.prototype.gererRelachement = e=>{
+    console.log(" Relachement")
     this.clic = false
     const pos = getMousePosition(canvas,e)
     this.finalx = pos.x
