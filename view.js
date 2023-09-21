@@ -29,8 +29,13 @@ Drawing.prototype.paint = function(ctx){
     })
 }
 
-Drawing.prototype.updateShapeList = function(obj){
+Drawing.prototype.updateShapeList = function(obj,id){
     const li = document.createElement("li")
     li.innerHTML = '<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove-sign">'+obj.toString()+'</span></button>'
+    li.querySelector("button").onclick = e=>{
+        console.log("cliqué !")
+        this.formes.splice(id,1)
+        document.getElementById("shapeList").removeChild(li)
+    }
     document.getElementById("shapeList").appendChild(li)
 }
