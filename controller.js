@@ -48,6 +48,10 @@ function Pencil(ctx, drawing, canvas) {
 		console.log(drawing)
 	}
 
+	Pencil.prototype.onShapeUpdate = function(){
+		drawing.paint(ctx)
+	}
+
 	document.getElementById("butRect").onclick =  e=>{
 		this.currEditingMode = editingMode.rect
 	}
@@ -62,6 +66,11 @@ function Pencil(ctx, drawing, canvas) {
 
 	document.getElementById("spinnerWidth").onchange = e=>{
 		this.currLineWidth = document.getElementById("spinnerWidth").value
+	}
+
+	document.getElementById("shapeList").onclick = e=>{
+		console.log("Shapelist target :",e.target)
+		drawing.paint(ctx)
 	}
 };
 

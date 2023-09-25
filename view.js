@@ -34,6 +34,7 @@ Drawing.prototype.updateShapeList = function(obj,id){
     li.innerHTML = '<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove-sign">'+obj.toString()+'</span></button>'
     li.querySelector("button").onclick = e=>{
         console.log("cliqué !")
+        console.log()
         this.formes.splice(id,1)
         document.getElementById("shapeList").removeChild(li)
     }
