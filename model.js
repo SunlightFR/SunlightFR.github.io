@@ -38,7 +38,7 @@ function Drawing(){
     this.formes = []
     this.add = function(forme){
         this.formes.push(forme)
-        this.updateShapeList(forme,this.formes.length-1)
+        this.updateShapeList(forme)
     }
 
     this.pop  =function(){

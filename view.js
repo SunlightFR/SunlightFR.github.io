@@ -29,13 +29,13 @@ Drawing.prototype.paint = function(ctx){
     })
 }
 
-Drawing.prototype.updateShapeList = function(obj,id){
+Drawing.prototype.updateShapeList = function(obj){
     const li = document.createElement("li")
     li.innerHTML = '<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove-sign">'+obj.toString()+'</span></button>'
-    li.querySelector("button").onclick = e=>{
-        console.log("cliqué !")
-        console.log()
-        this.formes.splice(id,1)
+    li.onclick = e=>{
+        console.log("Effacement de :",obj,li)
+        this.formes.splice(this.formes.indexOf(obj),1)
+        console.log(this.formes)
         document.getElementById("shapeList").removeChild(li)
     }
     document.getElementById("shapeList").appendChild(li)
