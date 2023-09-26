@@ -42,7 +42,10 @@ function Pencil(ctx, drawing, canvas) {
 				this.currentShape.hauteur = dnd.finaly - dnd.initialy
 				break;
 			case editingMode.circle:
-				this.currentShape.rayon = dnd.finalx - dnd.initialx + dnd.finaly - dnd.initialy
+				var x,y
+				x = dnd.finalx > dnd.initialx?dnd.finalx - dnd.initialx:dnd.initialx-dnd.finalx
+				y = dnd.finaly > dnd.initialy?dnd.finaly - dnd.initialy:dnd.initialy - dnd.finaly
+				this.currentShape.rayon = x+y
 				break;
 		}
 		drawing.paint(ctx)
