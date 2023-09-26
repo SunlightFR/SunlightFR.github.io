@@ -1,8 +1,8 @@
 
-var editingMode = { rect: 0, line: 1 };
+var editingMode = { rect: 0, line: 1,circle:2 };
 
 function Pencil(ctx, drawing, canvas) {
-	this.currEditingMode = editingMode.rect;
+	this.currEditingMode = editingMode.circle;
 	this.currLineWidth = document.getElementById("spinnerWidth").value;
 	this.currColour =  document.getElementById("colour").value
 	this.currentShape = 0;
@@ -23,6 +23,9 @@ function Pencil(ctx, drawing, canvas) {
 			case editingMode.rect:
 				this.currentShape = new Rectangle(dnd.initialx,dnd.initialy,0,0,this.currColour,this.currLineWidth)
 				break;
+			case editingMode.circle:
+				this.currentShape = new Cercle(dnd.initialx,dnd.initialy,0,this.currColour,this.currLineWidth)
+				break;
 		}
 		drawing.paint(ctx)
 		this.currentShape.paint(ctx)
@@ -37,6 +40,9 @@ function Pencil(ctx, drawing, canvas) {
 			case editingMode.rect:
 				this.currentShape.largeur = dnd.finalx - dnd.initialx
 				this.currentShape.hauteur = dnd.finaly - dnd.initialy
+				break;
+			case editingMode.circle:
+				this.currentShape.rayon = dnd.finalx - dnd.initialx + dnd.finaly - dnd.initialy
 				break;
 		}
 		drawing.paint(ctx)

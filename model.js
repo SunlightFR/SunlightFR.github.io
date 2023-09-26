@@ -32,6 +32,16 @@ function Rectangle(px, py , largeur, hauteur,couleur,epaisseur){
     }
 }
 
+function Cercle(ox, oy, rayon,couleur, epaisseur){
+    Forme.call(this,couleur,epaisseur)
+    this.ox = ox
+    this.oy = oy
+    this.rayon = rayon
+    Cercle.prototype.toString = function(){
+        return "Cercle. Origine : ("+this.ox+", "+this.oy+"), rayon : "+this.rayon+", "+this.couleur
+    }
+}
+
 Rectangle.prototype = new Forme()
 
 function Drawing(){

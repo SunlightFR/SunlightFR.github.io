@@ -21,6 +21,13 @@ Line.prototype.paint = function (ctx){
     ctx.stroke()
 }
 
+Cercle.prototype.paint = function(ctx){
+    ctx.beginPath()
+    Forme.prototype.paint.call(this,ctx)
+    ctx.arc(this.ox,this.oy,this.rayon, 0, 2 * Math.PI);
+    ctx.stroke()
+}
+
 Drawing.prototype.paint = function(ctx){
     ctx.fillStyle = "#F0F0F0"
     ctx.fillRect(0,0,canvas.width,canvas.height);
