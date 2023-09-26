@@ -66,6 +66,10 @@ function Pencil(ctx, drawing, canvas) {
 		this.currEditingMode = editingMode.line
 	}
 
+	document.getElementById("butCercle").onclick = e =>{
+		this.currEditingMode = editingMode.circle
+	}
+
 	document.getElementById("colour").onchange = e=>{
 		this.currColour = document.getElementById("colour").value
 	}
